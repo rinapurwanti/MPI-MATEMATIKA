@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Matematika: Pengukuran</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Menggunakan Font Google yang ramah anak -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">📐 Belajar Ukuran (Fase A)</div>
+        <nav>
+            <button class="nav-btn active" onclick="showSection('home')">🏠 Beranda</button>
+            <button class="nav-btn" onclick="showSection('learn')">📚 Belajar</button>
+            <button class="nav-btn" onclick="showSection('quiz')">🎮 Latihan</button>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- BERANDA / HOME -->
+        <section id="home" class="card active-section">
+            <h1>Selamat Datang! 👋</h1>
+            <p class="sub-title">Ayo belajar membandingkan ukuran benda dengan seru dan mudah!</p>
+            
+            <div class="character-box">
+                <!-- SVG Karakter Guru Visual -->
+                <svg width="120" height="120" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="#FFDE59" />
+                    <circle cx="35" cy="40" r="6" fill="#333" />
+                    <circle cx="65" cy="40" r="6" fill="#333" />
+                    <path d="M 30 65 Q 50 85 70 65" stroke="#333" stroke-width="5" fill="none" stroke-linecap="round" />
+                </svg>
+                <div class="speech-bubble">
+                     Halo Anak-Anak Hebat! Siap Belajar Hari Ini?
+                </div>
+            </div>
+
+            <button class="btn-start" onclick="showSection('learn')">Mulai Belajar ▶</button>
+        </section>
+
+        <!-- HALAMAN BELAJAR -->
+        <section id="learn" class="card">
+            <h2>📚 Konsep Ukuran</h2>
+            
+            <!-- Tab Pilihan Konsep -->
+            <div class="tab-menu">
+                <button class="tab-btn active-tab" onclick="switchConcept('panjang')">Panjang & Pendek</button>
+                <button class="tab-btn" onclick="switchConcept('tinggi')">Tinggi & Rendah/Pendek</button>
+            </div>
+
+            <!-- Material 1: Panjang vs Pendek -->
+            <div id="concept-panjang" class="concept-content">
+                <div class="visual-comparison">
+                    <div class="item-card">
+                        <span class="badge badge-long">PANJANG</span>
+                        <svg width="200" height="80" viewBox="0 0 200 80">
+                            <!-- Pensil Panjang -->
+                            <rect x="10" y="30" width="160" height="20" fill="#FF5722" rx="3"/>
+                            <polygon points="170,30 190,40 170,50" fill="#FFC107"/>
+                            <polygon points="183,36.5 190,40 183,43.5" fill="#333"/>
+                        </svg>
+                        <p class="word-label">Pensil **PANJANG**</p>
+                    </div>
+
+                    <div class="item-card">
+                        <span class="badge badge-short">PENDEK</span>
+                        <svg width="200" height="80" viewBox="0 0 200 80">
+                            <!-- Pensil Pendek -->
+                            <rect x="10" y="30" width="70" height="20" fill="#4CAF50" rx="3"/>
+                            <polygon points="80,30 100,40 80,50" fill="#FFC107"/>
+                            <polygon points="93,36.5 100,40 93,43.5" fill="#333"/>
+                        </svg>
+                        <p class="word-label">Pensil **PENDEK**</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 2: Tinggi vs Rendah -->
+            <div id="concept-tinggi" class="concept-content hide">
+                <div class="visual-comparison">
+                    <div class="item-card">
+                        <span class="badge badge-long">TINGGI</span>
+                        <svg width="120" height="180" viewBox="0 0 120 180">
+                            <!-- Jerapah / Pohon Tinggi -->
+                            <rect x="45" y="40" width="30" height="130" fill="#795548"/>
+                            <circle cx="60" cy="40" r="35" fill="#8BC34A"/>
+                        </svg>
+                        <p class="word-label">Pohon **TINGGI**</p>
+                    </div>
+
+                    <div class="item-card">
+                        <span class="badge badge-short">RENDAH</span>
+                        <svg width="120" height="180" viewBox="0 0 120 180">
+                            <!-- Pohon Rendah -->
+                            <rect x="45" y="110" width="30" height="60" fill="#795548"/>
+                            <circle cx="60" cy="110" r="25" fill="#8BC34A"/>
+                        </svg>
+                        <p class="word-label">Pohon **RENDAH**</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn-start" style="margin-top:20px;" onclick="showSection('quiz')">Ayo Latihan Soal 🎮</button>
+        </section>
+
+        <!-- HALAMAN LATIHAN VARIATIF -->
+        <section id="quiz" class="card">
+            <div class="quiz-header">
+                <h2>🎮 Latihan Interaktif</h2>
+                <div class="score-board">Skor: <span id="score">0</span></div>
+            </div>
+
+            <!-- Tempat Pertanyaan -->
+            <div id="quiz-container">
+                <div id="question-text" class="question-title">Pilih benda yang...</div>
+                
+                <div id="options-container" class="options-grid">
+                    <!-- Opsi jawaban akan diisi oleh JavaScript -->
+                </div>
+
+                <div id="feedback" class="feedback-box hide"></div>
+            </div>
+
+            <button id="next-btn" class="btn-next hide" onclick="nextQuestion()">Soal Berikutnya ➔</button>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
